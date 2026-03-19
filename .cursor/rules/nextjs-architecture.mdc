@@ -1,0 +1,59 @@
+---
+description: Core Next.js architecture standards - App Router, TypeScript, Tailwind v4, file organization
+alwaysApply: true
+---
+
+# Next.js Architecture Standards
+
+## Stack
+- Next.js App Router + TypeScript strict mode
+- Tailwind CSS v4 (no v3 syntax)
+- Server Components by default; `"use client"` only for forms, animations, or state
+
+## File Organization
+
+```
+app/
+├── layout.tsx                    # fonts, root metadata
+├── page.tsx                      # homepage
+├── (pages)/layout.tsx            # shared Header/Footer wrapper
+├── (pages)/[route]/page.tsx
+├── sitemap.ts                    # dynamic sitemap
+├── robots.ts
+└── api/forms/submit/route.ts
+
+components/
+├── [feature-name]/               # grouped by feature
+└── ui/                           # shared primitives
+
+lib/
+├── data/                         # all content (site-config.ts, navigation.ts, pages/, content/)
+├── types/                        # TypeScript interfaces
+└── seo/                          # metadata helpers (jsonld.ts)
+```
+
+## Page Rules
+
+Every page MUST:
+1. Import data from `lib/data/` — never hardcode content in JSX
+2. Export `generateMetadata()` using the page's data object
+3. Pass all data to components via props (no data fetching inside components)
+
+```tsx
+// ✅ GOOD
+import { homePageData } from '@/lib/data/pages/home'
+export async function generateMetadata() {
+  return buildMetadata(homePageData.seo)
+}
+export default function HomePage() {
+  return <HeroSection {...homePageData.hero} />
+}
+
+// ❌ BAD — hardcoded content, missing generateMetadata
+export default function HomePage() {
+  return <h1>Welcome to our site</h1>
+}
+```
+
+## Route Groups
+Use `app/(pages)/` for all routes that share the Header/Footer layout.

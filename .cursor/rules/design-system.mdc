@@ -1,0 +1,86 @@
+---
+description: Design system tokens, colour usage, typography and button patterns for Parc Ganuenta
+alwaysApply: true
+---
+
+# Design System — Parc Ganuenta
+
+**Style direction:** Rust, luxe, licht — generous whitespace, refined typography, accent colours used sparingly.
+
+## Font
+
+`azo-sans-web` (Adobe Fonts / Typekit) — loaded via `<link>` in `app/layout.tsx`.  
+Kit ID placeholder: `YOUR_KIT_ID` — must be replaced with the live kit from fonts.adobe.com.
+
+Set as `--font-sans` in `globals.css` and `font-family: var(--font-sans)` on `body`.
+
+## Colour Palette
+
+| Token (Tailwind)       | Hex       | Role                              |
+|------------------------|-----------|-----------------------------------|
+| `brand-stone`          | `#676159` | Primary — headings, nav, borders  |
+| `brand-taupe`          | `#CC9A8E` | Secondary — soft decorative use   |
+| `brand-pacific`        | `#00ADBC` | Accent — CTAs, links, rules       |
+| `brand-sky`            | `#74C4D6` | Soft accent — hover states, icons |
+| `brand-cinnamon`       | `#9E6950` | Warm depth — highlights, dividers |
+| `brand-dust`           | `#D2D1D1` | Neutral — borders, input strokes  |
+| `brand-shadow`         | `#231F20` | Text / high contrast              |
+| `brand-platinum`       | `#F0F0F0` | Section backgrounds               |
+| `brand-white`          | `#FFFFFF` | Page background / whitespace      |
+
+## Usage Rules
+
+- **Background:** `brand-white` (default), `brand-platinum` for alternating sections
+- **Text:** `brand-shadow` for headings/body, `brand-stone` for secondary/muted text
+- **Accent sparingly:** `brand-pacific` only for CTAs, active states, and decorative rules
+- **Warm accents:** `brand-cinnamon` and `brand-taupe` for highlights, never as large backgrounds
+- **Never use felle kleuren on large areas** — accents are stroke, icon, or CTA only
+
+## Buttons
+
+Use the global utility classes from `globals.css`:
+
+```tsx
+// Primary — Stone
+<button className="btn btn-primary">Meer informatie</button>
+
+// Accent — Pacific Blue
+<button className="btn btn-accent">Contact opnemen</button>
+
+// Ghost outlined — Stone
+<button className="btn btn-ghost">Bekijk project</button>
+```
+
+## Typography Patterns
+
+```tsx
+// Section label (all caps, wide tracking)
+<p className="label-style">Wonen in Zeeland</p>
+
+// Heading with Pacific Blue rule underneath
+<h2 className="heading-rule">Ontdek Parc Ganuenta</h2>
+
+// Centered heading with rule
+<h2 className="heading-rule heading-rule-centered text-center">Over ons</h2>
+```
+
+## Section Layout
+
+```tsx
+<section className="section-padding bg-brand-platinum">
+  <div className="container-site">
+    {/* content */}
+  </div>
+</section>
+```
+
+## JS Token Reference
+
+For OG images, canvas, or inline SVG — import from `lib/design-system.ts`:
+
+```ts
+import { colors, semanticColors, tw } from '@/lib/design-system'
+colors.brandPacific   // '#00ADBC'
+semanticColors.accent // '#00ADBC'
+tw.bgPlatinum         // 'bg-brand-platinum'
+```

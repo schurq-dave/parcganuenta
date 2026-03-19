@@ -1,0 +1,62 @@
+---
+description: Sanity CMS migration path - structure code so swapping to Sanity only changes data imports
+alwaysApply: true
+---
+
+# Sanity CMS Migration Path
+
+The entire codebase is structured so that migrating to Sanity CMS requires **only changing the data import on each page** — components and types remain untouched.
+
+## The Migration Change (Per Page)
+
+```ts
+// BEFORE (static file)
+import { homePageData } from '@/lib/data/pages/home'
+
+// AFTER (Sanity fetch) — one line change, everything else identical
+const homePageData = await sanityFetch<HomePage>({ query: HOME_PAGE_QUERY })
+```
+
+## Why This Works
+
+1. **Types already match Sanity schema** — use `_key` on array items, nested objects, reference shapes
+2. **Components are pure** — they only receive props, so the data source is irrelevant to them
+3. **Pages already async** — App Router pages are async Server Components; adding `await` is zero friction
+
+## Designing Types for Sanity Compatibility
+
+```ts
+// ✅ Sanity-ready — _key on array items, nested objects mirror document schema
+export interface ServiceItem {
+  _key: string          // required for Sanity array items
+  title: string
+  description: string
+  image: {
+    asset: { url: string; alt: string }   // mirrors Sanity image reference
+  }
+}
+
+// ❌ Not Sanity-ready — flat arrays with no _key, mismatched shape
+export interface ServiceItem {
+  id: number            // use _key instead
+  img: string           // Sanity images are objects, not strings
+}
+```
+
+## Folder Boundary to Preserve
+
+Keep this separation clean — **never blur the boundary**:
+
+| Layer | Role | Changes at migration? |
+|---|---|---|
+| `lib/types/` | Shared interfaces | No |
+| `lib/data/` | Static content source | Replaced by `sanityFetch()` |
+| `lib/seo/` | Metadata helpers | No |
+| `components/` | Presentation | No |
+| `app/**/page.tsx` | Imports data, renders | Import line only |
+
+## Never Do Before Migration
+
+- Do not create component-level data fetching — it breaks the migration path
+- Do not use `id: number` — use `_key: string` to match Sanity
+- Do not store image URLs as plain strings — use `{ asset: { url, alt } }` shape

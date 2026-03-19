@@ -1,0 +1,92 @@
+---
+description: Data layer standards - lib/data/, lib/types/, content structure, SEO fields
+globs: lib/**/*.ts
+alwaysApply: false
+---
+
+# Data Layer Standards
+
+## Structure
+
+All content lives in `lib/data/` — never in components or pages.
+
+```
+lib/
+├── data/
+│   ├── site-config.ts        # site name, URL, social links, default SEO
+│   ├── navigation.ts         # nav links, footer links
+│   ├── pages/                # one file per page
+│   │   ├── home.ts
+│   │   ├── about.ts
+│   │   └── services.ts
+│   └── content/              # reusable shared content blocks
+├── types/
+│   ├── seo.ts
+│   ├── navigation.ts
+│   └── [feature].ts
+└── seo/
+    └── jsonld.ts             # JSON-LD schema helpers
+```
+
+## Required SEO Shape on Every Page Data Object
+
+```ts
+// Every page data object MUST include this shape
+seo: {
+  metaTitle: string
+  metaDescription: string
+  slug: string
+  keywords?: string[]
+  ogImageUrl?: string
+}
+```
+
+## TypeScript Interface Rules
+
+- Define interfaces in `lib/types/` for every data structure
+- No `any` — use `unknown` + type guards if needed
+- Mirror future Sanity schema structure: nested objects, arrays, references
+
+```ts
+// ✅ GOOD — mirrors Sanity schema, typed, no any
+export interface ServicePage {
+  seo: SeoMeta
+  hero: {
+    heading: string
+    subheading: string
+    ctaLabel: string
+    ctaHref: string
+  }
+  services: ServiceItem[]
+}
+
+export interface ServiceItem {
+  _key: string          // Sanity array items use _key
+  title: string
+  description: string
+  icon: string
+}
+
+// ❌ BAD — inline types, missing seo, not Sanity-ready
+const data = {
+  title: 'Services',
+  items: [{ name: 'Thing' }]
+}
+```
+
+## Data File Template
+
+```ts
+import type { ServicePage } from '@/lib/types/service'
+
+export const servicePageData: ServicePage = {
+  seo: {
+    metaTitle: 'Services | Site Name',
+    metaDescription: '...',
+    slug: '/services',
+    keywords: ['...'],
+  },
+  hero: { ... },
+  services: [{ _key: 'svc-1', title: '...', ... }],
+}
+```

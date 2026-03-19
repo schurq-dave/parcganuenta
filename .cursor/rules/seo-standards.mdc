@@ -1,0 +1,100 @@
+---
+description: SEO standards - generateMetadata, JSON-LD, sitemap, robots, OpenGraph on every page
+globs: app/**/*.tsx
+alwaysApply: false
+---
+
+# SEO Standards
+
+## Every Page Must Export `generateMetadata()`
+
+```tsx
+// app/(pages)/about/page.tsx
+import { aboutPageData } from '@/lib/data/pages/about'
+import { buildMetadata } from '@/lib/seo/metadata'
+
+export async function generateMetadata() {
+  return buildMetadata(aboutPageData.seo)
+}
+```
+
+## `lib/seo/metadata.ts` Helper
+
+Centralise metadata generation so all pages stay consistent:
+
+```ts
+import type { SeoMeta } from '@/lib/types/seo'
+import type { Metadata } from 'next'
+import { siteConfig } from '@/lib/data/site-config'
+
+export function buildMetadata(seo: SeoMeta): Metadata {
+  return {
+    title: seo.metaTitle,
+    description: seo.metaDescription,
+    keywords: seo.keywords,
+    alternates: { canonical: `${siteConfig.url}${seo.slug}` },
+    openGraph: {
+      title: seo.metaTitle,
+      description: seo.metaDescription,
+      url: `${siteConfig.url}${seo.slug}`,
+      images: seo.ogImageUrl ? [{ url: seo.ogImageUrl }] : [],
+      type: 'website',
+    },
+  }
+}
+```
+
+## JSON-LD Structured Data (`lib/seo/jsonld.ts`)
+
+Provide helpers for common schema.org types:
+
+```ts
+export function organizationJsonLd(config: SiteConfig) { ... }
+export function webPageJsonLd(seo: SeoMeta, config: SiteConfig) { ... }
+export function faqJsonLd(items: FaqItem[]) { ... }
+export function breadcrumbJsonLd(crumbs: Breadcrumb[]) { ... }
+```
+
+Render with a `<JsonLd>` component:
+
+```tsx
+// components/seo/JsonLd.tsx
+interface JsonLdProps { data: Record<string, unknown> }
+
+export function JsonLd({ data }: JsonLdProps) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  )
+}
+```
+
+## `app/sitemap.ts` (dynamic)
+
+```ts
+import { MetadataRoute } from 'next'
+import { siteConfig } from '@/lib/data/site-config'
+import { allPageSlugs } from '@/lib/data/navigation'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return allPageSlugs.map((slug) => ({
+    url: `${siteConfig.url}${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: slug === '/' ? 1 : 0.8,
+  }))
+}
+```
+
+## `app/robots.ts`
+
+```ts
+export default function robots() {
+  return {
+    rules: { userAgent: '*', allow: '/' },
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+  }
+}
+```

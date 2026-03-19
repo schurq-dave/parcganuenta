@@ -1,0 +1,76 @@
+---
+description: Component architecture - pure presentational, prop interfaces, size limits, feature folders
+globs: components/**/*.tsx
+alwaysApply: false
+---
+
+# Component Architecture Standards
+
+## Core Rules
+
+1. **Pure presentational** — components accept props, return JSX, no data fetching
+2. **Under 200 lines** — split into smaller components if larger
+3. **Always define a TypeScript prop interface** — no implicit props, no `any`
+4. **Never import from `lib/data/`** — data flows in via props only
+5. **Feature-based folders** — group related components together
+
+## Folder Structure
+
+```
+components/
+├── hero/
+│   ├── HeroSection.tsx
+│   └── HeroBackground.tsx
+├── service-detail/
+│   ├── ServiceDetail.tsx
+│   └── ServiceCard.tsx
+├── seo/
+│   └── JsonLd.tsx
+└── ui/
+    ├── Button.tsx
+    └── SectionHeading.tsx
+```
+
+## Component Template
+
+```tsx
+// ✅ GOOD — typed props, semantic HTML, no data imports, mobile-first
+interface ServiceCardProps {
+  title: string
+  description: string
+  icon: string
+  href: string
+}
+
+export function ServiceCard({ title, description, icon, href }: ServiceCardProps) {
+  return (
+    <article className="flex flex-col gap-3 p-6 md:p-8">
+      <span aria-hidden="true">{icon}</span>
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="text-sm text-neutral-600">{description}</p>
+      <a href={href} aria-label={`Learn more about ${title}`}>Learn more</a>
+    </article>
+  )
+}
+
+// ❌ BAD — fetches data, no interface, hardcoded content
+export function ServiceCard() {
+  const data = require('@/lib/data/services') // NEVER
+  return <div>Our Services</div>              // hardcoded
+}
+```
+
+## Client Components
+
+Only use `"use client"` when the component needs:
+- `useState` / `useEffect` / `useReducer`
+- Event handlers with complex state
+- Browser APIs
+- Animation libraries (Framer Motion etc.)
+
+Forms always need `"use client"`.
+
+## HTML Semantics
+
+Use semantic elements: `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<header>`, `<footer>`.
+Every interactive element needs an `aria-label` if the text label alone is ambiguous.
