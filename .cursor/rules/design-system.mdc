@@ -9,10 +9,17 @@ alwaysApply: true
 
 ## Font
 
-`azo-sans-web` (Adobe Fonts / Typekit) — loaded via `<link>` in `app/layout.tsx`.  
-Kit ID placeholder: `YOUR_KIT_ID` — must be replaced with the live kit from fonts.adobe.com.
+Two typefaces via Adobe Fonts (Typekit) — both must be in the same kit on fonts.adobe.com.
 
-Set as `--font-sans` in `globals.css` and `font-family: var(--font-sans)` on `body`.
+| Token | Font | Role |
+|---|---|---|
+| `--font-display` | `forma-djr-display` | Headings — h1 through h6 |
+| `--font-sans` | `azo-sans-web` | Body, UI, buttons |
+
+Kit ID placeholder: `YOUR_KIT_ID` — replace in `app/layout.tsx` with the live kit ID.
+
+- `--font-display` is set on `h1–h6` via `@layer base` in `globals.css`
+- `--font-sans` is set on `body` and buttons
 
 ## Colour Palette
 

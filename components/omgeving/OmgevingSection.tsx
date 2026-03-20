@@ -38,12 +38,12 @@ export function OmgevingSection({
         ) : (
           <div className="absolute inset-0 bg-brand-stone" />
         )}
-        {/* Gradient: darker on the left side where text sits */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
+        {/* Gradient: darker on the right side where text sits */}
+        <div className="absolute inset-0 bg-gradient-to-l from-black/75 via-black/50 to-black/20" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-site">
+      <div className="relative z-10 container-site-wide w-full flex justify-end">
         <div className="max-w-lg">
           {/* Label */}
           <p className="text-brand-pacific text-xs font-medium tracking-widest uppercase mb-6">
@@ -53,9 +53,11 @@ export function OmgevingSection({
           {/* Heading */}
           <h2 className="text-white text-4xl md:text-5xl tracking-tight leading-tight mb-8">
             {headingLines.map((line, i) => (
-              <span key={i} className="block">
-                {line}
-              </span>
+              <span 
+                key={i} 
+                className="block"
+                dangerouslySetInnerHTML={{ __html: line }}
+              />
             ))}
           </h2>
 
@@ -65,7 +67,7 @@ export function OmgevingSection({
           </p>
 
           {/* CTA */}
-          <Link href={ctaHref} className="btn btn-ghost-accent">
+          <Link href={ctaHref} className="btn btn-ghost-white">
             {ctaLabel}
           </Link>
         </div>

@@ -17,25 +17,25 @@ export const homePageData: HomePage = {
   },
 
   hero: {
-    heading: 'Luxe vakantievilla\'s\nom in te genieten',
+    heading: 'Luxe vakantievilla\'s\nom in te <span class="font-serif italic font-normal pr-2 text-brand-platinum">genieten</span>',
     subheading:
       'Koop uw prachtige wellness vakantievilla, direct aan de Oosterschelde in het hart van Zeeland.',
     ctaLabel: 'Bekijk ons aanbod',
     ctaHref: '/stadsvilla-kopen',
-    backgroundImageUrl: '/images/hero-parc-ganuenta.jpg',
-    backgroundVideoUrl: '/videos/hero.mp4',
+    backgroundImageUrl: '/images/hero-background.png',
+    backgroundVideoUrl: '/videos/hero.mov',
   },
 
   intro: {
     label: 'Welkom bij Parc Ganuenta',
-    heading: 'Waar rust en\nluxe samenkomen',
+    heading: 'Waar rust en\nluxe <span class="font-serif italic font-normal pr-2">samenkomen</span>',
     body: 'Parc Ganuenta is een exclusief kleinschalig villapark direct aan de Oosterschelde. Omringd door natuur, met eigen wellness en uitzicht op het water, bieden onze stadsVilla\'s een unieke combinatie van comfort, rust en beleving. Of u nu zoekt naar een eigen vakantieverblijf of een waardevolle investering — hier vindt u het.',
     ctas: [
       {
         _key: 'cta-stadsvilla',
         label: 'Bekijk de stadsVilla\'s',
         href: '/stadsvilla-kopen',
-        variant: 'primary',
+        variant: 'accent',
       },
       {
         _key: 'cta-over-ons',
@@ -44,11 +44,12 @@ export const homePageData: HomePage = {
         variant: 'ghost',
       },
     ],
+    imageUrl: '/images/intro-family.png',
   },
 
   aanbod: {
     label: 'Ons aanbod',
-    heading: 'De villa\'s',
+    heading: 'De <span class="font-serif italic font-normal pr-2">villa\'s</span>',
     subheading:
       'Parc Ganuenta biedt twee typen exclusieve stadsVilla\'s — elk ontworpen voor maximaal comfort en een tijdloze uitstraling.',
     villas: [
@@ -91,7 +92,7 @@ export const homePageData: HomePage = {
 
   omgeving: {
     label: 'De omgeving',
-    heading: 'Zeeland op zijn\nmooiste',
+    heading: 'Zeeland op zijn\n<span class="font-serif italic font-normal pr-2">mooiste</span>',
     body: 'Parc Ganuenta ligt direct aan de Oosterschelde — een van de mooiste watergebieden van Nederland. Wandel over de dijken, verken de Zeeuwse cultuur of geniet van verse zeevangst in een van de sfeervolle havens. De natuur is hier altijd dichtbij.',
     ctaLabel: 'Ontdek de omgeving',
     ctaHref: '/omgeving',
@@ -101,7 +102,7 @@ export const homePageData: HomePage = {
 
   reviews: {
     label: 'Wat onze gasten zeggen',
-    heading: 'Ervaringen die\nblijven',
+    heading: 'Ervaringen die\n<span class="font-serif italic font-normal pr-2">blijven</span>',
     reviews: [
       {
         _key: 'review-1',
@@ -137,7 +138,7 @@ export const homePageData: HomePage = {
   },
 
   cta: {
-    heading: 'Klaar om uw droomvilla\nte ontdekken?',
+    heading: 'Klaar om uw droomvilla\nte <span class="font-serif italic font-normal pr-2">ontdekken?</span>',
     subheading:
       'Plan een vrijblijvend bezoek en ervaar zelf de sfeer van Parc Ganuenta.',
     ctaLabel: 'Neem contact op',

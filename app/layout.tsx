@@ -23,10 +23,12 @@ export default function RootLayout({
     <html lang="nl" className="h-full">
       <head>
         {/*
-          azo-sans-web is an Adobe Fonts (Typekit) typeface.
-          Replace the kit ID below with your own from fonts.adobe.com.
-          Once active, the font is available as 'azo-sans-web' — already
-          set as --font-sans in globals.css.
+          Adobe Fonts (Typekit) — beide fonts moeten in dezelfde kit zitten.
+          Ga naar fonts.adobe.com, maak een kit aan met:
+            - azo-sans-web  (body / UI)
+            - forma-djr-display  (headings)
+          Vervang YOUR_KIT_ID hieronder met de kit-ID uit fonts.adobe.com.
+          Na activatie zijn de fonts beschikbaar als CSS font-family namen.
         */}
         <link rel="preconnect" href="https://use.typekit.net" />
         <link rel="stylesheet" href="https://use.typekit.net/YOUR_KIT_ID.css" />

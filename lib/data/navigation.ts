@@ -7,7 +7,7 @@ export const navigationData: NavigationData = {
     { label: 'Omgeving', href: '/omgeving' },
     { label: 'Nieuws', href: '/nieuws' },
     { label: 'Over ons', href: '/over-ons' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Contact', href: '/contact', isButton: true },
   ],
   footer: {
     columns: [

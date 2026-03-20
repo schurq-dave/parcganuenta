@@ -34,7 +34,9 @@ export default function HomePage() {
 
       <main>
         {/* 1 — Hero */}
-        <HeroSection {...homePageData.hero} />
+        <div className="bg-brand-white pb-[20px]">
+          <HeroSection {...homePageData.hero} />
+        </div>
 
         {/* 2 — Over Parc Ganuenta */}
         <IntroSection {...homePageData.intro} />

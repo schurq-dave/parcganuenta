@@ -42,15 +42,17 @@ export function CtaBand({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-site">
+      <div className="relative z-10 container-site-wide">
         {/* Decorative rule */}
         <div className="mx-auto mb-8 h-px w-16 bg-brand-pacific" aria-hidden="true" />
 
         <h2 className="text-white text-3xl md:text-5xl tracking-tight leading-tight mb-6 max-w-2xl mx-auto">
           {headingLines.map((line, i) => (
-            <span key={i} className="block font-medium">
-              {line}
-            </span>
+            <span 
+              key={i} 
+              className="block font-medium"
+              dangerouslySetInnerHTML={{ __html: line }}
+            />
           ))}
         </h2>
 
@@ -58,8 +60,13 @@ export function CtaBand({
           {subheading}
         </p>
 
-        <Link href={ctaHref} className="btn btn-accent">
-          {ctaLabel}
+        <Link href={ctaHref} className="btn-group">
+          <span className="btn btn-accent">{ctaLabel}</span>
+          <span className="btn-arrow-circle" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 13 L13 3 M6 3 h7 v7" />
+            </svg>
+          </span>
         </Link>
       </div>
     </section>

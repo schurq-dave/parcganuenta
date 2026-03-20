@@ -50,6 +50,8 @@
 
   /* ── Typography ─────────────────────────── */
   --font-sans:             'azo-sans-web', system-ui, sans-serif;
+  --font-display:          'forma-djr-display', 'azo-sans-web', system-ui, sans-serif;
+  --font-serif:            'Shadows Into Light', cursive;
 
   /* Font sizes — refined luxury scale */
   --font-size-xs:          0.75rem;    /* 12px */
@@ -82,7 +84,7 @@
 
   /* ── Spacing ─────────────────────────────── */
   --spacing-section:       5rem;    /* vertical section padding */
-  --spacing-section-lg:    8rem;
+  --spacing-section-lg:    6.25rem;
 
   /* ── Border radius ───────────────────────── */
   --radius-sm:    0.25rem;
@@ -116,7 +118,7 @@ html {
 }
 
 body {
-  background-color: var(--color-brand-white);
+  background-color: var(--color-brand-platinum);
   color: var(--color-brand-shadow);
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
@@ -130,7 +132,7 @@ body {
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     color: var(--color-brand-shadow);
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-weight: var(--font-weight-heading);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
@@ -150,10 +152,12 @@ body {
   }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition-base);
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-base);
+  }
 }
 
 /* ─────────────────────────────────────────────
@@ -223,16 +227,43 @@ a {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1.75rem;
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
     font-weight: 500;
     letter-spacing: var(--letter-spacing-wide);
     text-transform: uppercase;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
     transition: all var(--transition-smooth);
     cursor: pointer;
     border: 1px solid transparent;
+  }
+
+  /* Button with arrow companion — wraps .btn + .btn-arrow-circle */
+  .btn-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  /* Circular arrow badge next to a button */
+  .btn-arrow-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-brand-white);
+    color: var(--color-brand-shadow);
+    flex-shrink: 0;
+    transition: background-color var(--transition-smooth), color var(--transition-smooth), transform var(--transition-smooth);
+  }
+
+  .btn-group:hover .btn-arrow-circle {
+    background-color: var(--color-brand-taupe);
+    color: var(--color-brand-white);
+    transform: rotate(45deg);
   }
 
   /* Primary button — Stone */
@@ -242,7 +273,8 @@ a {
     border-color: var(--color-brand-stone);
   }
 
-  .btn-primary:hover {
+  .btn-primary:hover,
+  .btn-group:hover .btn-primary {
     background-color: var(--color-primary-hover);
     border-color: var(--color-primary-hover);
   }
@@ -254,7 +286,8 @@ a {
     border-color: var(--color-brand-pacific);
   }
 
-  .btn-accent:hover {
+  .btn-accent:hover,
+  .btn-group:hover .btn-accent {
     background-color: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
   }
@@ -281,5 +314,18 @@ a {
   .btn-ghost-accent:hover {
     background-color: var(--color-brand-pacific);
     color: var(--color-brand-white);
+  }
+
+  /* Ghost white — outlined white */
+  .btn-ghost-white {
+    background-color: transparent;
+    color: var(--color-brand-white);
+    border: 1px solid var(--color-brand-white);
+  }
+
+  .btn-ghost-white:hover {
+    background-color: var(--color-brand-stone);
+    color: var(--color-brand-white);
+    border-color: var(--color-brand-stone);
   }
 }

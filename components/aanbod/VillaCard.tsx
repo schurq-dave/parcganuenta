@@ -40,24 +40,19 @@ export function VillaCard({
         <h3 className="text-2xl font-medium text-brand-shadow mb-4 tracking-tight">{title}</h3>
         <p className="text-brand-stone text-sm leading-relaxed mb-6">{description}</p>
 
-        {/* Specs grid */}
-        <dl className="grid grid-cols-2 gap-y-3 gap-x-4 mb-8 border-t border-brand-platinum pt-6">
-          {specs.map((spec) => (
-            <div key={spec._key} className="flex flex-col">
-              <dt className="text-xs text-brand-dust uppercase tracking-wider">{spec.label}</dt>
-              <dd className="text-sm text-brand-shadow font-medium mt-0.5">{spec.value}</dd>
-            </div>
-          ))}
-        </dl>
-
         {/* CTA */}
-        <div className="mt-auto">
+        <div className="mt-auto pt-6 border-t border-brand-platinum">
           <Link
             href={href}
-            className="btn btn-ghost w-full"
+            className="btn-group w-full"
             aria-label={`${ctaLabel} — ${title}`}
           >
-            {ctaLabel}
+            <span className="btn btn-accent w-full">{ctaLabel}</span>
+            <span className="btn-arrow-circle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 13 L13 3 M6 3 h7 v7" />
+              </svg>
+            </span>
           </Link>
         </div>
       </div>

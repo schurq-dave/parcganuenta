@@ -26,13 +26,14 @@ export interface IntroSection {
   heading: string
   body: string
   ctas: IntroCtaItem[]
+  imageUrl?: string
 }
 
 export interface IntroCtaItem {
   _key: string
   label: string
   href: string
-  variant: 'primary' | 'ghost'
+  variant: 'primary' | 'accent' | 'ghost'
 }
 
 export interface AanbodSection {

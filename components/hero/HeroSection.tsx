@@ -13,7 +13,7 @@ export function HeroSection({
 
   return (
     <section
-      className="relative flex min-h-screen items-end pb-20 md:pb-28 lg:pb-36"
+      className="relative flex min-h-screen flex-col overflow-hidden rounded-br-[14rem]"
       aria-label="Hero"
     >
       {/* Background */}
@@ -28,6 +28,7 @@ export function HeroSection({
             className="absolute inset-0 h-full w-full object-cover"
           >
             <source src={backgroundVideoUrl} type="video/mp4" />
+            <source src={backgroundVideoUrl} type="video/quicktime" />
           </video>
         ) : (
           <div
@@ -39,29 +40,45 @@ export function HeroSection({
         )}
         {/* Dark overlay — bottom-weighted for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+        {/* Donkerbruine overlay met lichte opacity */}
+        <div className="absolute inset-0 bg-[#3E2723]/30" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container-site w-full">
-        <div className="max-w-3xl">
-          {/* Eyebrow rule */}
-          <div className="mb-6 h-px w-12 bg-brand-pacific" aria-hidden="true" />
+      {/* H1 — verticaal gecentreerd in de hero */}
+      <div className="relative z-10 flex flex-1 items-center justify-center container-site-wide pt-32">
+        <h1 className="text-brand-platinum font-medium leading-tight text-4xl sm:text-5xl lg:text-[80px] tracking-tight text-center max-w-4xl">
+          {headingLines.map((line, i) => (
+            <span 
+              key={i} 
+              className="block text-brand-platinum font-medium"
+              dangerouslySetInnerHTML={{ __html: line }}
+            />
+          ))}
+        </h1>
+      </div>
 
-          <h1 className="text-brand-platinum font-medium leading-tight mb-6 text-4xl sm:text-5xl lg:text-6xl tracking-tight">
-            {headingLines.map((line, i) => (
-              <span key={i} className="block text-brand-platinum font-medium">
-                {line}
+      {/* Onderste balk — button links, subtekst midden */}
+      <div className="relative z-10 container-site-wide w-full pb-20 md:pb-28 lg:pb-36">
+        <div className="w-full flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-10">
+          {/* CTA links */}
+          <div className="md:flex-1 flex md:justify-start justify-center">
+            <Link href={ctaHref} className="btn-group">
+              <span className="btn btn-accent">{ctaLabel}</span>
+              <span className="btn-arrow-circle" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 13 L13 3 M6 3 h7 v7" />
+                </svg>
               </span>
-            ))}
-          </h1>
+            </Link>
+          </div>
 
-          <p className="text-brand-platinum text-lg sm:text-xl mb-10 max-w-xl leading-relaxed font-light">
+          {/* Subtekst midden */}
+          <p className="md:flex-1 text-brand-platinum text-base sm:text-lg leading-relaxed font-light text-center max-w-sm">
             {subheading}
           </p>
 
-          <Link href={ctaHref} className="btn btn-accent">
-            {ctaLabel}
-          </Link>
+          {/* Lege kolom rechts voor symmetrie */}
+          <div className="hidden md:block md:flex-1" aria-hidden="true" />
         </div>
       </div>
 
