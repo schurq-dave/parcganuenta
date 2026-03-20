@@ -9,8 +9,15 @@ export interface NavigationData {
   footer: {
     columns: FooterColumn[]
     legal: NavLink[]
+    socials: SocialLink[]
     copyright: string
   }
+}
+
+export interface SocialLink {
+  platform: string
+  href: string
+  icon: string // We'll use this for the SVG path
 }
 
 export interface FooterColumn {

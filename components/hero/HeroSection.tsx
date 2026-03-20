@@ -13,7 +13,7 @@ export function HeroSection({
 
   return (
     <section
-      className="relative flex min-h-screen flex-col overflow-hidden rounded-br-[14rem]"
+      className="relative flex min-h-screen flex-col overflow-hidden"
       aria-label="Hero"
     >
       {/* Background */}

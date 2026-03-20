@@ -26,12 +26,6 @@ export function VillaCard({
             <span className="text-brand-dust text-sm tracking-wider uppercase">Afbeelding volgt</span>
           </div>
         )}
-        {/* Price badge */}
-        <div className="absolute top-4 right-4 bg-brand-white/95 px-3 py-1.5">
-          <span className="text-xs font-medium tracking-wider text-brand-stone uppercase">
-            {priceLabel}
-          </span>
-        </div>
       </div>
 
       {/* Content */}
