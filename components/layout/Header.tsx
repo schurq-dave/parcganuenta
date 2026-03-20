@@ -64,8 +64,8 @@ export function Header({ siteName, navLinks, transparent = false }: HeaderProps)
                       className={[
                         'text-xs font-medium tracking-wider uppercase px-6 py-2.5 rounded-full border transition-colors duration-300',
                         isSolid 
-                          ? 'border-brand-stone text-brand-stone hover:bg-brand-pacific hover:border-brand-pacific hover:text-white' 
-                          : 'border-white text-white hover:bg-brand-pacific hover:border-brand-pacific hover:text-white'
+                          ? 'border-brand-stone text-brand-stone hover:bg-brand-stone hover:border-brand-stone hover:text-white' 
+                          : 'border-white text-white hover:bg-brand-stone hover:border-brand-stone hover:text-white'
                       ].join(' ')}
                     >
                       {link.label}

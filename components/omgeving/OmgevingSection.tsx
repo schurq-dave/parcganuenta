@@ -45,11 +45,6 @@ export function OmgevingSection({
       {/* Content */}
       <div className="relative z-10 container-site-wide w-full flex justify-end">
         <div className="max-w-lg">
-          {/* Label */}
-          <p className="text-brand-pacific text-xs font-medium tracking-widest uppercase mb-6">
-            {label}
-          </p>
-
           {/* Heading */}
           <h2 className="text-white text-4xl md:text-5xl tracking-tight leading-tight mb-8">
             {headingLines.map((line, i) => (

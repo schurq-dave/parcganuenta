@@ -9,9 +9,6 @@ export function IntroSection({ label, heading, body, ctas, imageUrl }: IntroSect
       <div className="container-site-wide">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1 max-w-2xl text-left">
-            {/* Label */}
-            <p className="label-style mb-6">{label}</p>
-
             {/* Heading */}
             <h2 className="heading-rule text-brand-shadow mb-8">
               {headingLines.map((line, i) => (

@@ -13,7 +13,6 @@ export function ReviewsSection({ label, heading, reviews }: ReviewsSectionProps)
       <div className="container-site-wide">
         {/* Header */}
         <div className="max-w-xl mb-14">
-          <p className="label-style mb-5">{label}</p>
           <h2 className="heading-rule text-brand-shadow">
             {headingLines.map((line, i) => (
               <span 

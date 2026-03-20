@@ -54,7 +54,7 @@ export function ReviewCard({ quote, authorName, authorDetails, villaLabel, villa
           <span className="text-white/80 text-sm font-medium">{authorName}</span>
           <Link
             href={villaHref}
-            className="inline-flex items-center justify-center gap-2 bg-white text-brand-shadow rounded-full px-5 py-2.5 text-xs font-medium tracking-wider uppercase hover:bg-brand-taupe hover:text-white transition-colors shrink-0"
+            className="inline-flex items-center justify-center gap-2 bg-white text-brand-shadow rounded-full px-5 py-2.5 text-xs font-medium tracking-wider uppercase hover:bg-brand-stone hover:text-white transition-colors shrink-0"
             aria-label={`Bekijk ${villaLabel}`}
           >
             <span>{villaLabel}</span>

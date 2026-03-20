@@ -30,7 +30,6 @@ export function VillaCard({
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-8">
-        <p className="label-style mb-2">{subtitle}</p>
         <h3 className="text-2xl font-medium text-brand-shadow mb-4 tracking-tight">{title}</h3>
         <p className="text-brand-stone text-sm leading-relaxed mb-6">{description}</p>
 
