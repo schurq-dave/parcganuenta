@@ -26,7 +26,7 @@ export function ReviewsSection({ label, heading, reviews }: ReviewsSectionProps)
 
         {/* Review cards */}
         <div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-[29px] md:gap-6 lg:gap-8"
           onMouseLeave={() => setActiveIndex(0)}
         >
           {reviews.map((review, index) => (

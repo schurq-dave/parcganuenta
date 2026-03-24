@@ -26,7 +26,7 @@ export function IntroSection({ label, heading, body, ctas, imageUrl }: IntroSect
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-start gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4">
               {ctas.map((cta) => {
                 if (cta.variant === 'primary' || cta.variant === 'accent') {
                   return (

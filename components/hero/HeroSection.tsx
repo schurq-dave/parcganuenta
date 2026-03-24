@@ -58,8 +58,8 @@ export function HeroSection({
       </div>
 
       {/* Onderste balk — button links, subtekst midden */}
-      <div className="relative z-10 container-site-wide w-full pb-20 md:pb-28 lg:pb-36">
-        <div className="w-full flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-10">
+      <div className="relative z-10 container-site-wide w-full pb-32 md:pb-28 lg:pb-36">
+        <div className="w-full flex flex-col md:flex-row items-center md:items-end gap-8 md:gap-10">
           {/* CTA links */}
           <div className="md:flex-1 flex md:justify-start justify-center">
             <Link href={ctaHref} className="btn-group">

@@ -24,7 +24,7 @@ export function Header({ siteName, navLinks, transparent = false }: HeaderProps)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [transparent])
 
-  const isSolid = !transparent || scrolled
+  const isSolid = !transparent || scrolled || menuOpen
 
   return (
     <header
