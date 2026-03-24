@@ -84,7 +84,7 @@
 
   /* ── Spacing ─────────────────────────────── */
   --spacing-section:       5rem;    /* vertical section padding */
-  --spacing-section-lg:    6.25rem;
+  --spacing-section-lg:    7.5rem;
 
   /* ── Border radius ───────────────────────── */
   --radius-sm:    0.25rem;
@@ -171,8 +171,8 @@ body {
   }
 
   .section-padding-lg {
-    padding-top: var(--spacing-section-lg);
-    padding-bottom: var(--spacing-section-lg);
+    padding-top: 1px;
+    padding-bottom: 130px;
   }
 
   .container-site {
@@ -266,30 +266,43 @@ body {
     transform: rotate(45deg);
   }
 
-  /* Primary button — Stone */
+  /* Primary button — transparent with Pacific Blue border */
   .btn-primary {
-    background-color: var(--color-brand-stone);
-    color: var(--color-brand-white);
-    border-color: var(--color-brand-stone);
+    background-color: transparent;
+    color: var(--color-brand-pacific);
+    border-color: var(--color-brand-pacific);
   }
 
   .btn-primary:hover,
   .btn-group:hover .btn-primary {
-    background-color: var(--color-primary-hover);
-    border-color: var(--color-primary-hover);
-  }
-
-  /* Accent button — Pacific Blue */
-  .btn-accent {
     background-color: var(--color-brand-pacific);
     color: var(--color-brand-white);
     border-color: var(--color-brand-pacific);
   }
 
+  /* Accent button — transparent with Pacific Blue border */
+  .btn-accent {
+    background-color: transparent;
+    color: var(--color-brand-white) !important;
+    border-width: 1px;
+    border-color: var(--color-brand-pacific);
+  }
+
   .btn-accent:hover,
   .btn-group:hover .btn-accent {
-    background-color: var(--color-accent-hover);
-    border-color: var(--color-accent-hover);
+    background-color: var(--color-brand-pacific);
+    color: var(--color-brand-white) !important;
+    border-color: var(--color-brand-pacific);
+  }
+
+  /* Accent button on light backgrounds */
+  .btn-accent-light {
+    color: var(--color-brand-shadow) !important;
+  }
+
+  .btn-accent-light:hover,
+  .btn-group:hover .btn-accent-light {
+    color: var(--color-brand-white) !important;
   }
 
   /* Ghost button — outlined Stone */

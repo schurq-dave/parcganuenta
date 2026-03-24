@@ -13,6 +13,7 @@ import { IntroSection } from '@/components/intro/IntroSection'
 import { AanbodSection } from '@/components/aanbod/AanbodSection'
 import { OmgevingSection } from '@/components/omgeving/OmgevingSection'
 import { ReviewsSection } from '@/components/reviews/ReviewsSection'
+import { FaqSection } from '@/components/faq/FaqSection'
 import { CtaBand } from '@/components/cta/CtaBand'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -50,7 +51,10 @@ export default function HomePage() {
         {/* 5 — Reviews */}
         <ReviewsSection {...homePageData.reviews} />
 
-        {/* 6 — CTA band */}
+        {/* 6 — FAQ */}
+        <FaqSection {...homePageData.faq} />
+
+        {/* 7 — CTA band */}
         <CtaBand {...homePageData.cta} />
       </main>
 

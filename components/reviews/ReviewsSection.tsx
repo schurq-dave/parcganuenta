@@ -10,7 +10,7 @@ export function ReviewsSection({ label, heading, reviews }: ReviewsSectionProps)
 
   return (
     <section className="section-padding-lg bg-brand-white" aria-label="Ervaringen van gasten">
-      <div className="container-site-wide">
+      <div className="container-site-wide pt-[100px]">
         {/* Header */}
         <div className="max-w-xl mb-14">
           <h2 className="heading-rule text-brand-shadow">

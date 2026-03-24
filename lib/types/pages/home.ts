@@ -7,6 +7,7 @@ export interface HomePage {
   aanbod: AanbodSection
   omgeving: OmgevingSection
   reviews: ReviewsSection
+  faq: FaqSection
   cta: CtaBand
 }
 
@@ -85,6 +86,18 @@ export interface ReviewItem {
   villaLabel: string
   villaHref: string
   imageUrl: string
+}
+
+export interface FaqSection {
+  label: string
+  heading: string
+  items: FaqItem[]
+}
+
+export interface FaqItem {
+  _key: string
+  question: string
+  answer: string
 }
 
 export interface CtaBand {

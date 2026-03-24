@@ -37,10 +37,10 @@ export function VillaCard({
         <div className="mt-auto pt-6 border-t border-brand-platinum">
           <Link
             href={href}
-            className="btn-group w-full"
+            className="btn-group"
             aria-label={`${ctaLabel} — ${title}`}
           >
-            <span className="btn btn-accent w-full">{ctaLabel}</span>
+            <span className="btn btn-accent btn-accent-light">{ctaLabel}</span>
             <span className="btn-arrow-circle" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 13 L13 3 M6 3 h7 v7" />

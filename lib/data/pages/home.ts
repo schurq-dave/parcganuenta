@@ -137,6 +137,38 @@ export const homePageData: HomePage = {
     ],
   },
 
+  faq: {
+    label: 'Veelgestelde vragen',
+    heading: 'Alles wat u wilt <span class="font-serif italic font-normal pr-2">weten</span>',
+    items: [
+      {
+        _key: 'faq-1',
+        question: 'Kan ik een stadsVilla kopen als vakantiewoning?',
+        answer: 'Ja. De stadsVilla\'s van Parc Ganuenta zijn uitsluitend bestemd als vakantiewoning. U koopt de villa in volledige eigendom en mag deze het hele jaar door gebruiken voor eigen verblijf en verhuur.',
+      },
+      {
+        _key: 'faq-2',
+        question: 'Is verhuur van mijn villa mogelijk?',
+        answer: 'Absoluut. Verhuur is toegestaan en wij bieden optionele verhuurbegeleiding aan. Zo geniet u van uw investering ook wanneer u er zelf niet verblijft.',
+      },
+      {
+        _key: 'faq-3',
+        question: 'Wat zijn de kosten naast de koopprijs?',
+        answer: 'Naast de koopprijs betaalt u een jaarlijkse bijdrage voor het beheer en onderhoud van het park. De exacte kosten worden transparant gecommuniceerd tijdens het aankoopproces.',
+      },
+      {
+        _key: 'faq-4',
+        question: 'Kan ik een villa bezichtigen?',
+        answer: 'Ja, bezichtigingen zijn altijd mogelijk op afspraak. Neem contact met ons op en wij plannen een vrijblijvend bezoek in — inclusief een rondleiding door het park.',
+      },
+      {
+        _key: 'faq-5',
+        question: 'Wanneer worden de villa\'s opgeleverd?',
+        answer: 'De verwachte oplevering is in 2025. Exacte data zijn afhankelijk van de bouwvoortgang. Kopers worden gedurende het hele traject op de hoogte gehouden.',
+      },
+    ],
+  },
+
   cta: {
     heading: 'Klaar om uw droomvilla\nte <span class="font-serif italic font-normal pr-2">ontdekken?</span>',
     subheading:
