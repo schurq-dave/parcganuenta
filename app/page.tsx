@@ -10,6 +10,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/hero/HeroSection'
 import { IntroSection } from '@/components/intro/IntroSection'
+import { ExperienceCarouselSection } from '@/components/experience/ExperienceCarouselSection'
 import { AanbodSection } from '@/components/aanbod/AanbodSection'
 import { OmgevingSection } from '@/components/omgeving/OmgevingSection'
 import { ReviewsSection } from '@/components/reviews/ReviewsSection'
@@ -42,19 +43,22 @@ export default function HomePage() {
         {/* 2 — Over Parc Ganuenta */}
         <IntroSection {...homePageData.intro} />
 
-        {/* 3 — Ons aanbod / villa's */}
+        {/* 3 — Inkijk / beleving */}
+        <ExperienceCarouselSection {...homePageData.experience} />
+
+        {/* 4 — Ons aanbod / villa's */}
         <AanbodSection {...homePageData.aanbod} />
 
-        {/* 4 — Omgeving */}
+        {/* 5 — Omgeving */}
         <OmgevingSection {...homePageData.omgeving} />
 
-        {/* 5 — Reviews */}
+        {/* 6 — Reviews */}
         <ReviewsSection {...homePageData.reviews} />
 
-        {/* 6 — FAQ */}
+        {/* 7 — FAQ */}
         <FaqSection {...homePageData.faq} />
 
-        {/* 7 — CTA band */}
+        {/* 8 — CTA band */}
         <CtaBand {...homePageData.cta} />
       </main>
 

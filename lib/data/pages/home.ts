@@ -47,6 +47,64 @@ export const homePageData: HomePage = {
     imageUrl: '/images/intro-family.png',
   },
 
+
+  experience: {
+    heading:
+      'Een inkijkje in uw\n<span class="font-serif italic font-normal pr-2">verblijf</span>',
+    subheading:
+      'Ontdek hoe rust, licht en luxe samenkomen — van privé wellness tot het terras en het hart van uw villa.',
+    slides: [
+      {
+        _key: 'exp-sauna',
+        title: 'Privé wellness',
+        caption:
+          'Warm hout, zacht licht en de stilte van uw eigen sauna — het perfecte moment om los te laten.',
+        image: {
+          asset: {
+            url: '/images/experience-sauna.png',
+            alt: 'Licht houten interieur van een privé sauna met banken en warme sfeerverlichting',
+          },
+        },
+      },
+      {
+        _key: 'exp-bedroom',
+        title: 'Sereen slapen',
+        caption:
+          'Strakke lijnen, natuurlijke materialen en een rustige slaapkamer om volledig tot rust te komen.',
+        image: {
+          asset: {
+            url: '/images/experience-bedroom.png',
+            alt: 'Moderne slaapkamer met houten vloer en zicht op een warme accentmuur',
+          },
+        },
+      },
+      {
+        _key: 'exp-veranda',
+        title: 'Binnen en buiten',
+        caption:
+          'Een overdekt terras waar binnen en buiten in elkaar overlopen — het hele jaar door genieten.',
+        image: {
+          asset: {
+            url: '/images/experience-veranda.png',
+            alt: 'Luxe overdekt terras met loungebank, houten plafond en uitzicht op de tuin',
+          },
+        },
+      },
+      {
+        _key: 'exp-living',
+        title: 'Leven & genieten',
+        caption:
+          'Ruime woon- en eethoek met warme tinten — de plek om samen te eten, te ontspannen en te genieten.',
+        image: {
+          asset: {
+            url: '/images/experience-living.png',
+            alt: 'Open woon- en eetruimte met houten vloer, designverlichting en eettafel',
+          },
+        },
+      },
+    ],
+  },
+
   aanbod: {
     label: 'Ons aanbod',
     heading: 'De <span class="font-serif italic font-normal pr-2">villa\'s</span>',

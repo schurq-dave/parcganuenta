@@ -4,6 +4,7 @@ export interface HomePage {
   seo: SeoMeta
   hero: HeroSection
   intro: IntroSection
+  experience: ExperienceCarouselSection
   aanbod: AanbodSection
   omgeving: OmgevingSection
   reviews: ReviewsSection
@@ -35,6 +36,24 @@ export interface IntroCtaItem {
   label: string
   href: string
   variant: 'primary' | 'accent' | 'ghost'
+}
+
+export interface ExperienceCarouselSection {
+  heading: string
+  subheading?: string
+  slides: ExperienceSlide[]
+}
+
+export interface ExperienceSlide {
+  _key: string
+  title: string
+  caption: string
+  image: {
+    asset: {
+      url: string
+      alt: string
+    }
+  }
 }
 
 export interface AanbodSection {
