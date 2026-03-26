@@ -221,6 +221,11 @@ body {
     margin-inline: auto;
   }
 
+  /* Hero H1 — script spans from CMS/HTML strings use design token explicitly */
+  .hero-heading span.font-serif {
+    color: var(--color-brand-platinum);
+  }
+
   /* Button base */
   .btn {
     display: inline-flex;

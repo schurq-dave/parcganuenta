@@ -46,7 +46,7 @@ export function HeroSection({
 
       {/* H1 — verticaal gecentreerd in de hero */}
       <div className="relative z-10 flex flex-1 items-center justify-center container-site-wide pt-32">
-        <h1 className="text-brand-platinum font-medium leading-tight text-4xl sm:text-5xl lg:text-[80px] tracking-tight text-center max-w-4xl">
+        <h1 className="hero-heading text-brand-platinum font-medium leading-tight text-4xl sm:text-5xl lg:text-[80px] tracking-tight text-center max-w-4xl">
           {headingLines.map((line, i) => (
             <span 
               key={i} 
