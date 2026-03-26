@@ -45,7 +45,26 @@ export function ExperienceCarouselSection({
     >
       <div className="container-site-wide">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 lg:items-center">
-          <div className="flex flex-col">
+          {/* Mobiel: eerst titel + intro; desktop: rechterkolom boven */}
+          <div className="flex flex-col text-left lg:col-start-2 lg:row-start-1">
+            <h2 className="heading-rule text-brand-shadow font-medium">
+              {headingLines.map((line, i) => (
+                <span
+                  key={i}
+                  className="block"
+                  dangerouslySetInnerHTML={{ __html: line }}
+                />
+              ))}
+            </h2>
+            {subheading ? (
+              <p className="mt-6 max-w-xl text-brand-stone leading-relaxed">
+                {subheading}
+              </p>
+            ) : null}
+          </div>
+
+          {/* Mobiel: carousel + stipjes; desktop: linkerkolom over beide rijen */}
+          <div className="flex flex-col lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:self-center">
             <div
               className="relative aspect-[4/3] w-full overflow-hidden rounded-tr-[4rem] rounded-bl-[4rem]"
               style={{ boxShadow: 'var(--shadow-card)' }}
@@ -66,7 +85,7 @@ export function ExperienceCarouselSection({
               ))}
             </div>
             <div
-              className="mt-4 pt-[10px] flex flex-wrap justify-start gap-2"
+              className="mt-4 pt-[10px] flex flex-wrap justify-start gap-1.5 md:gap-2"
               role="group"
               aria-label="Kies impressie"
             >
@@ -78,8 +97,8 @@ export function ExperienceCarouselSection({
                   onClick={() => setIndex(i)}
                   className={
                     i === index
-                      ? 'h-2.5 w-8 rounded-full bg-brand-pacific transition-all duration-300'
-                      : 'h-2.5 w-2.5 rounded-full bg-brand-dust transition-all duration-300 hover:bg-brand-stone'
+                      ? 'h-2 w-6 rounded-full bg-brand-pacific transition-all duration-300 md:h-2.5 md:w-8'
+                      : 'h-1.5 w-1.5 rounded-full bg-brand-dust transition-all duration-300 hover:bg-brand-stone md:h-2.5 md:w-2.5'
                   }
                   aria-label={`Ga naar ${slide.title}`}
                 />
@@ -87,25 +106,11 @@ export function ExperienceCarouselSection({
             </div>
           </div>
 
-          <div className="flex flex-col text-left">
-            <h2 className="heading-rule text-brand-shadow font-medium">
-              {headingLines.map((line, i) => (
-                <span
-                  key={i}
-                  className="block"
-                  dangerouslySetInnerHTML={{ __html: line }}
-                />
-              ))}
-            </h2>
-            {subheading ? (
-              <p className="mt-6 max-w-xl text-brand-stone leading-relaxed">
-                {subheading}
-              </p>
-            ) : null}
-
+          {/* Mobiel: slide-tekst + pijlen; desktop: rechterkolom onder titel */}
+          <div className="flex flex-col text-left lg:col-start-2 lg:row-start-2">
             <div
               key={active._key}
-              className="mt-10 space-y-3 transition-opacity duration-500"
+              className="space-y-3 transition-opacity duration-500"
               aria-live="polite"
               aria-atomic="true"
             >
